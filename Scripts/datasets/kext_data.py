@@ -184,6 +184,16 @@ kexts = [
         }
     ),
     KextInfo(
+        name = "Feixiao", 
+        description = "Realtek WLAN (rtw88) driver for macOS",
+        category = "Wi-Fi",
+        min_darwin_version = "20.0.0",
+        github_repo = {
+            "owner": "thegwchr",
+            "repo": "Feixiao"
+        }
+    ),
+    KextInfo(
         name = "IO80211ElCap", 
         description = "Enable legacy Qualcomm Atheros Wireless cards",
         category = "Wi-Fi",
@@ -332,6 +342,16 @@ kexts = [
         github_repo = {
             "owner": "OpenIntelWireless",
             "repo": "IntelBluetoothFirmware"
+        }
+    ),
+    KextInfo(
+        name = "RealtekBluetoothFirmware", 
+        description = "Uploads firmware to enable Realtek Bluetooth support",
+        category = "Bluetooth",
+        requires_kexts = ["BlueToolFixup"],
+        github_repo = {
+            "owner": "thegwchr",
+            "repo": "RealtekBluetoothFirmware"
         }
     ),
     KextInfo(

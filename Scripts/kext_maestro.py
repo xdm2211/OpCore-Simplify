@@ -275,6 +275,8 @@ class KextMaestro:
                 selected_kexts.append("corecaptureElCap")
                 if self.utils.parse_darwin_version(macos_version) > self.utils.parse_darwin_version("20.99.99"):
                     selected_kexts.append("AMFIPass")
+            elif device_id in pci_data.rtw88WiFiIDs:
+                selected_kexts.append("Feixiao")
             elif device_id in pci_data.IntelI22XIDs:
                 selected_kexts.append("AppleIGC")
             elif device_id in pci_data.AtherosE2200IDs:
@@ -306,6 +308,8 @@ class KextMaestro:
                 selected_kexts.append("BrcmFirmwareData")
             elif usb_id in pci_data.IntelBluetoothIDs:
                 selected_kexts.append("IntelBluetoothFirmware")
+            elif usb_id in pci_data.RealtekBluetoothIDs:
+                selected_kexts.append("RealtekBluetoothFirmware")
             elif usb_id in pci_data.BluetoothIDs[-1]:
                 selected_kexts.append("BlueToolFixup")
 
@@ -400,10 +404,14 @@ class KextMaestro:
             if kext.checked:
                 try:
                     source_kext_path = destination_kext_path = None
+                    kext_name = kext.name
 
-                    kext_paths = self.utils.find_matching_paths(self.ock_files_dir, extension_filter=".kext", name_filter=kext.name)
+                    if kext_name == "Feixiao":
+                        kext_name = "rtw88"
+
+                    kext_paths = self.utils.find_matching_paths(self.ock_files_dir, extension_filter=".kext", name_filter=kext_name)
                     for kext_path, type in kext_paths:
-                        if "AirportItlwm" == kext.name:
+                        if "AirportItlwm" == kext_name:
                             version = macos_version[:2]
                             if all((self.kexts[kext_data.kext_index_by_name.get("IOSkywalkFamily")].checked, self.kexts[kext_data.kext_index_by_name.get("IO80211FamilyLegacy")].checked)) or self.utils.parse_darwin_version("24.0.0") <= self.utils.parse_darwin_version(macos_version):
                                 version = "22"
@@ -420,7 +428,7 @@ class KextMaestro:
                             main_kext = kext_path.split("/")[0]
                             main_kext_index = kext_data.kext_index_by_name.get(main_kext)
                             if not main_kext_index or self.kexts[main_kext_index].checked:
-                                if os.path.splitext(os.path.basename(kext_path))[0] in kext.name:
+                                if os.path.splitext(os.path.basename(kext_path))[0] in kext_name:
                                     source_kext_path = os.path.join(self.ock_files_dir, kext_path)
                                     destination_kext_path = os.path.join(kexts_directory, os.path.basename(kext_path))
                     

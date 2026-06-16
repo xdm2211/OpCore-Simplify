@@ -254,12 +254,12 @@ class CompatibilityChecker:
             elif device_id in pci_data.AquantiaAqtionIDs:
                 min_version = "21.0.0"
 
-            if device_id in pci_data.WirelessCardIDs:
-                if not device_id in pci_data.IntelWiFiIDs and not device_id in pci_data.AtherosWiFiIDs[8:]:
+            if device_id in set(pci_data.EthernetIDs) | set(pci_data.WirelessUSBIDs):
+                device_props["Compatibility"] = (max_version, min_version)
+            elif device_id in pci_data.WirelessCardIDs:
+                if not device_id in pci_data.IntelWiFiIDs and not device_id in pci_data.AtherosWiFiIDs[8:] and not device_id in pci_data.rtw88WiFiIDs:
                     device_props["OCLP Compatibility"] = (ocl_patched_max_version, ocl_patched_min_version)
                     self.ocl_patched_macos_version = (ocl_patched_max_version, self.ocl_patched_macos_version[-1] if self.ocl_patched_macos_version and self.utils.parse_darwin_version(self.ocl_patched_macos_version[-1]) < self.utils.parse_darwin_version(device_props.get("OCLP Compatibility")[-1]) else device_props.get("OCLP Compatibility")[-1])
-                device_props["Compatibility"] = (max_version, min_version)
-            elif device_id in pci_data.EthernetIDs + pci_data.WirelessUSBIDs:
                 device_props["Compatibility"] = (max_version, min_version)
 
             if bus_type.startswith("PCI") and not device_props.get("Compatibility"):

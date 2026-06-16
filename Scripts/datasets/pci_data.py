@@ -174,7 +174,93 @@ IntelBluetoothIDs = [
     "8087-0AAA"
 ]
 
-BluetoothIDs = AtherosBluetoothIDs + BroadcomBluetoothIDs + IntelBluetoothIDs + [
+RealtekBluetoothIDs = [
+    "0489-E085",
+    "0489-E08B",
+    "0489-E112",
+    "0489-E122",
+    "0489-E123",
+    "0489-E125",
+    "0489-E12F",
+    "0489-E130",
+    "04C5-161F",
+    "04C5-165C",
+    "04C5-1675",
+    "04CA-4005",
+    "04CA-4006",
+    "04CA-4007",
+    "04F2-B49F",
+    "0930-021D",
+    "0B05-17DC",
+    "0B05-185C",
+    "0B05-18EF",
+    "0B05-190E",
+    "0BDA-2852",
+    "0BDA-385A",
+    "0BDA-4852",
+    "0BDA-4853",
+    "0BDA-8520",
+    "0BDA-8771",
+    "0BDA-887B",
+    "0BDA-8922",
+    "0BDA-B009",
+    "0BDA-B00C",
+    "0BDA-B850",
+    "0BDA-B85B",
+    "0BDA-C123",
+    "0BDA-C822",
+    "0BDA-C852",
+    "0CB5-C547",
+    "0CB8-C549",
+    "0CB8-C558",
+    "0CB8-C559",
+    "1358-C123",
+    "13D3-3394",
+    "13D3-3410",
+    "13D3-3414",
+    "13D3-3416",
+    "13D3-3458",
+    "13D3-3459",
+    "13D3-3461",
+    "13D3-3462",
+    "13D3-3494",
+    "13D3-3526",
+    "13D3-3529",
+    "13D3-3533",
+    "13D3-3548",
+    "13D3-3549",
+    "13D3-3553",
+    "13D3-3555",
+    "13D3-3570",
+    "13D3-3571",
+    "13D3-3572",
+    "13D3-3586",
+    "13D3-3587",
+    "13D3-3591",
+    "13D3-3592",
+    "13D3-3600",
+    "13D3-3601",
+    "13D3-3612",
+    "13D3-3616",
+    "13D3-3617",
+    "13D3-3618",
+    "13D3-3619",
+    "2001-332A",
+    "2357-0604",
+    "2550-8761",
+    "2B89-6275",
+    "2B89-8761",
+    "2C0A-8761",
+    "2FF8-3051",
+    "2FF8-B011",
+    "3625-010B",
+    "6655-8771",
+    "7392-A611",
+    "7392-C611",
+    "7392-E611"
+]
+
+BluetoothIDs = AtherosBluetoothIDs + BroadcomBluetoothIDs + IntelBluetoothIDs + RealtekBluetoothIDs + [
     "03F0-231D",
     "0489-E030",
     "0489-E097",
@@ -472,7 +558,19 @@ IntelWiFiIDs = [
     "8086-A370"
 ]
 
-WirelessCardIDs = AtherosWiFiIDs + BroadcomWiFiIDs + IntelWiFiIDs
+rtw88WiFiIDs = [
+    "10EC-B822",
+    "10EC-C822",
+    "10EC-C821",
+    "10EC-8812",
+    "10EC-8813",
+    "0BDA-8300",
+    "0BDA-B812",
+    "0BDA-C812",
+    "0BDA-8812"
+]
+
+WirelessCardIDs = AtherosWiFiIDs + BroadcomWiFiIDs + IntelWiFiIDs + rtw88WiFiIDs
 
 AppleIGBIDs = [
     # AppleIGB.kext
